@@ -8,14 +8,9 @@ public class Main {
     public static StateMachine stateMachine;
     public static void main(String[] args) {
         init();
-        double marker = System.currentTimeMillis();
         while(stateMachine.running()) {
             stateMachine.loop();
-            if(System.currentTimeMillis() - marker >  1000) {
-                marker = System.currentTimeMillis();
-                System.out.println("Current stage: " + stateMachine.currStage.name());
-            }
-
+            System.out.println("Current stage: " + stateMachine.currStage.name());
             waitForLoop();
         }
     }

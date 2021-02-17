@@ -1,7 +1,7 @@
 package control;
 
 public class Stages {
-    interface basicStage {
+    public interface basicStage {
         String name();
         boolean finishState();
         void startFunction();
