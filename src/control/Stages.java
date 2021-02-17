@@ -1,3 +1,5 @@
+package control;
+
 public class Stages {
     interface basicStage {
         String name();

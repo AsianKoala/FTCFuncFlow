@@ -1,3 +1,4 @@
+package control;
 
 class StageStartVars {
     public double stageStartX;
@@ -9,7 +10,7 @@ class StageStartVars {
 //        stageStartX = currentPosition.x;
 //        stageStartY = currentPosition.y;
 //        stageStartHeading = currentPosition.heading;
-//        stageStartPose = new Pose(stageStartX, stageStartY, stageStartHeading);
+//        stageStartPose = new util.Pose(stageStartX, stageStartY, stageStartHeading);
         stageStartTime = System.currentTimeMillis();
     }
 }

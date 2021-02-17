@@ -1,3 +1,5 @@
+package control;
+
 public class Functions {
     public interface function {
         Results.baseResult result();
