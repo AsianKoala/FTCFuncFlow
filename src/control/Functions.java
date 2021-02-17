@@ -9,8 +9,12 @@ public class Functions {
         Results.simpleResult runHardware();
     }
 
-    public interface testResult extends function {
-        Results.testResult runTest();
+    public interface movementFunction extends function {
+        Results.movementResult runMovement();
+    }
+
+    public interface pointToPointFunction extends function {
+        Results.movementResult runTurn();
     }
 }
 

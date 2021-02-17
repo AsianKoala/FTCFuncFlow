@@ -18,4 +18,8 @@ public class Util {
     public static boolean angleDiffCheck(double a1, double a2, double thresh) {
         return Math.abs(angleSubtraction(a1, a2)) < thresh;
     }
+
+    public static double clip(double x, double min, double max) {
+        return Math.min(x, min) == x ? min : Math.max(x, max) == x ? max : x;
+    }
 }
