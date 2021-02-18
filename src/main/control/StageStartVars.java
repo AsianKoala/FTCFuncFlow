@@ -3,7 +3,7 @@ import main.util.Pose;
 
 import static main.util.GlobalVars.*;
 
-class StageStartVars {
+public class StageStartVars {
     public double stageStartX;
     public double stageStartY;
     public double stageStartHeading;
@@ -11,7 +11,7 @@ class StageStartVars {
     public double stageStartTime;
 
     public void initialize() {
-        stageStartX = currentPosition.x;
+        stageStartX = 0;
         stageStartY = currentPosition.y;
         stageStartHeading = currentPosition.heading;
         stageStartPose = new main.util.Pose(stageStartX, stageStartY, stageStartHeading);
