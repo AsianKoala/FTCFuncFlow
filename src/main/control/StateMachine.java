@@ -10,11 +10,11 @@ public class StateMachine {
 
     public StateMachine() {
         stages = new LinkedList<>();
+        completedStages = -1;
     }
 
     public void addStage(Stages.basicStage newStage) {
         stages.add(newStage);
-        currStage = stages.getFirst();
     }
 
     public boolean running() {
@@ -29,6 +29,14 @@ public class StateMachine {
     }
 
     public void loop() {
+        if(completedStages == -1) {
+            currStage = stages.getFirst();
+            System.out.println(currStage.name());
+            currStage.AUTO_START_VARS.initialize();
+            currStage.startFunction();
+            completedStages++;
+        }
+
         if(currStage.finishState()) {
             currStage.endFunction();
             stages.removeFirst();

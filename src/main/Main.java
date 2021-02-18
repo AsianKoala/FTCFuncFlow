@@ -10,7 +10,7 @@ import main.util.Pose;
 import java.util.ArrayList;
 
 public class Main {
-    public static final int TIME_BETWEEN_LOOPS = 500;
+    public static final int TIME_BETWEEN_LOOPS = 250;
 
     public static StateMachine stateMachine;
     public static Robot robot;
@@ -23,12 +23,12 @@ public class Main {
 
 
     public static void main(String[] args) {
+        GlobalVars.currentPosition = new Pose(100,100,Math.toRadians(30));
         stateMachine = new StateMachine();
-        int i=0;
         stateMachine.addStage(new Stages.basicStage() {
             @Override
             public String name() {
-                return "hardware counting up i";
+                return "hardware counting up 10";
             }
 
             @Override
@@ -38,23 +38,21 @@ public class Main {
 
             @Override
             public void startFunction() {
-                
+                System.out.println("started stage: " + name());
             }
 
             @Override
             public void mainFunction() {
-
+                AUTO_START_VARS.stageStartX ++;
+                System.out.println("x is: " + AUTO_START_VARS.stageStartX);
             }
 
             @Override
             public void endFunction() {
-
+                System.out.println("completed stage: " + name());
             }
-
-
         });
 
-        double marker = System.currentTimeMillis();
         while(stateMachine.running()) {
             waitForLoop();
             stateMachine.loop();
