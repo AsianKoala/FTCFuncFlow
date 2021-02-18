@@ -1,1 +1,1 @@
-resource folder for when i add graphics to this project 
+resource folder for when i add main.graphics to this project 

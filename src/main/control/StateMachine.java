@@ -1,4 +1,4 @@
-package control;
+package main.control;
 
 import java.util.LinkedList;
 

@@ -1,8 +1,8 @@
-package robot;
+package main.robot;
 
 
-import control.Functions;
-import util.Point;
+import main.control.Functions;
+import main.util.Point;
 
 
 public class CurvePoint {

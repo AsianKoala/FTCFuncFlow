@@ -1,4 +1,4 @@
-package graphics;
+package main.graphics;
 
 public class MainPanel {
 }

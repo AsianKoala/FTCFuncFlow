@@ -1,9 +1,10 @@
-import control.Stages;
-import control.StateMachine;
-import robot.CurvePoint;
-import robot.Robot;
-import util.GlobalVars;
-import util.Pose;
+package main;
+
+import main.control.StateMachine;
+import main.robot.CurvePoint;
+import main.robot.Robot;
+import main.util.GlobalVars;
+import main.util.Pose;
 
 import java.util.ArrayList;
 

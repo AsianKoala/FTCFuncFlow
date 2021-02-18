@@ -1,8 +1,8 @@
-package control;
+package main.control;
 
-import static util.GlobalVars.currentPosition;
-import static util.Util.angleDiffCheck;
-import static util.Util.angleWrap;
+import static main.util.GlobalVars.currentPosition;
+import static main.util.Util.angleDiffCheck;
+import static main.util.Util.angleWrap;
 
 public class Results {
     public static class baseResult {

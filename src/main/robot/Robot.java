@@ -1,6 +1,6 @@
-package robot;
-import static util.GlobalVars.*;
-import static util.Util.*;
+package main.robot;
+import static main.util.GlobalVars.*;
+import static main.util.Util.*;
 
 public class Robot {
     public final double MAX_X_SPEED = 10;

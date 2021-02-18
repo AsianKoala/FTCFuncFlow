@@ -1,9 +1,9 @@
-package robot;
+package main.robot;
 
-import control.Results;
+import main.control.Results;
 
-import static util.Util.*;
-import static util.GlobalVars.*;
+import static main.util.Util.*;
+import static main.util.GlobalVars.*;
 
 public class MovementController {
     public static Results.movementResult followCurve() { // just gonna be some super basic gotoposition shit cant be bothered to write pure pursuit for this xd

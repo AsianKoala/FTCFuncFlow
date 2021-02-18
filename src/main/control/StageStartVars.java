@@ -1,7 +1,7 @@
-package control;
-import util.Pose;
+package main.control;
+import main.util.Pose;
 
-import static util.GlobalVars.*;
+import static main.util.GlobalVars.*;
 
 class StageStartVars {
     public double stageStartX;
@@ -14,7 +14,7 @@ class StageStartVars {
         stageStartX = currentPosition.x;
         stageStartY = currentPosition.y;
         stageStartHeading = currentPosition.heading;
-        stageStartPose = new util.Pose(stageStartX, stageStartY, stageStartHeading);
+        stageStartPose = new main.util.Pose(stageStartX, stageStartY, stageStartHeading);
         stageStartTime = System.currentTimeMillis();
     }
 }
