@@ -3,9 +3,8 @@ package main.control;
 public class Stages {
     public interface basicStage {
         String name();
-        boolean finishState();
         void startFunction();
-        void mainFunction();
+        Results.baseResult mainFunction();
         void endFunction();
         StageStartVars AUTO_START_VARS = new StageStartVars();
     }

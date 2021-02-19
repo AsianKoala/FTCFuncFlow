@@ -11,10 +11,10 @@ public class StageStartVars {
     public double stageStartTime;
 
     public void initialize() {
-        stageStartX = -5;
-//        stageStartY = currentPosition.y;
-//        stageStartHeading = currentPosition.heading;
-//        stageStartPose = new main.util.Pose(stageStartX, stageStartY, stageStartHeading);
-//        stageStartTime = System.currentTimeMillis();
+        stageStartX = currentPosition.x;
+        stageStartY = currentPosition.y;
+        stageStartHeading = currentPosition.heading;
+        stageStartPose = new main.util.Pose(stageStartX, stageStartY, stageStartHeading);
+        stageStartTime = System.currentTimeMillis();
     }
 }
