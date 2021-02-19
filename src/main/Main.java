@@ -1,6 +1,8 @@
 package main;
 
 import static main.util.GlobalVars.*;
+
+import main.control.Functions;
 import main.control.Results;
 import main.control.Stages;
 import main.control.StateMachine;
@@ -22,86 +24,104 @@ public class Main {
 
 
     public static void main(String[] args) {
-        currentPosition = new Pose(100,100,Math.toRadians(30));
-        stateMachine = new StateMachine();
-        stateMachine.addStage(new Stages.basicStage() {
+//        currentPosition = new Pose(100,100,Math.toRadians(30));
+//        stateMachine = new StateMachine();
+//        stateMachine.addStage(new Stages.basicStage() {
+//            @Override
+//            public String name() {
+//                return "hardware counting up 10";
+//            }
+//
+//
+//            @Override
+//            public void startFunction() {
+//                System.out.println("started stage: " + name());
+//            }
+//
+//            @Override
+//            public Results.baseResult mainFunction() {
+//                currentPosition.x++;
+//                currentPosition.y++;
+//                System.out.println("currxy: " + currentPosition.x + ", " + currentPosition.y);
+//                return new Results.movementResult(110, 110, Math.toRadians(30), 0.5, 0.5);
+//            }
+//
+//            @Override
+//            public void endFunction() {
+//                System.out.println("completed stage: " + name());
+//            }
+//        });
+//
+//        stateMachine.addStage(new Stages.basicStage() {
+//
+//            @Override
+//            public String name() {
+//                return "curvePoint iteration";
+//            }
+//
+//            @Override
+//            public void startFunction() {
+//                System.out.println("\n stage started");
+//            }
+//
+//            @Override
+//            public Results.baseResult mainFunction() {
+//                ArrayList<curvepoint> allPoints = new ArrayList<>();
+//                allPoints.add(new curvepoint(115, 115, new simplefunction() {
+//                    @Override
+//                    void method() {
+//                        System.out.println("simple function");
+//                    }
+//                }));
+//                allPoints.add(new curvepoint(120, 120, new simplefunction() {
+//                    @Override
+//                    void method() {
+//                        System.out.println("2nd function");
+//                    }
+//                }));
+//                allPoints.add(new curvepoint(125, 125, new simplefunction() {
+//                    @Override
+//                    void method() {
+//                        System.out.println("3rd function");
+//                    }
+//                }));
+//                allPoints.add(new curvepoint(130, 130, new simplefunction() {
+//                    @Override
+//                    void method() {
+//                        System.out.println("4th function");
+//                    }
+//                }));
+//
+//                return followCurve(allPoints);
+//            }
+//
+//            @Override
+//            public void endFunction() {
+//                System.out.println("state machine has finished");
+//            }
+//        });
+//
+//        while(stateMachine.running()) {
+//            waitForLoop();
+//            stateMachine.loop();
+//        }
+
+        ArrayList<curvepoint> allPoints = new ArrayList<>();
+        allPoints.add(new curvepoint(10, 10, new hardwarefunction() {
             @Override
-            public String name() {
-                return "hardware counting up 10";
+            void method() {
+                System.out.println("hardware function");
             }
 
-
             @Override
-            public void startFunction() {
-                System.out.println("started stage: " + name());
+            double anglee() {
+                return 50;
             }
 
-            @Override
-            public Results.baseResult mainFunction() {
-                currentPosition.x++;
-                currentPosition.y++;
-                System.out.println("currxy: " + currentPosition.x + ", " + currentPosition.y);
-                return new Results.movementResult(110, 110, Math.toRadians(30), 0.5, 0.5);
-            }
-
-            @Override
-            public void endFunction() {
-                System.out.println("completed stage: " + name());
-            }
-        });
-
-        stateMachine.addStage(new Stages.basicStage() {
-
-            @Override
-            public String name() {
-                return "curvePoint iteration";
-            }
-
-            @Override
-            public void startFunction() {
-                System.out.println("\n stage started");
-            }
-
-            @Override
-            public Results.baseResult mainFunction() {
-                ArrayList<curvepoint> allPoints = new ArrayList<>();
-                allPoints.add(new curvepoint(115, 115, new simplefunction() {
-                    @Override
-                    void method() {
-                        System.out.println("simple function");
-                    }
-                }));
-                allPoints.add(new curvepoint(120, 120, new simplefunction() {
-                    @Override
-                    void method() {
-                        System.out.println("2nd function");
-                    }
-                }));
-                allPoints.add(new curvepoint(125, 125, new simplefunction() {
-                    @Override
-                    void method() {
-                        System.out.println("3rd function");
-                    }
-                }));
-                allPoints.add(new curvepoint(130, 130, new simplefunction() {
-                    @Override
-                    void method() {
-                        System.out.println("4th function");
-                    }
-                }));
-
-                return followCurve(allPoints);
-            }
-
-            @Override
-            public void endFunction() {
-                System.out.println("state machine has finished");
-            }
-        });
-
-        while(stateMachine.running()) {
-            waitForLoop();
-            stateMachine.loop();
+        }));
+        if(allPoints.get(0).function instanceof hardwarefunction) {
+            hardwarefunction hfunction = (hardwarefunction) allPoints.get(0).function;
+            System.out.println(hfunction.anglee());
         }
     }
 
@@ -153,6 +173,7 @@ abstract class function {
 abstract class hardwarefunction extends function {
     @Override
     abstract void method();
+    abstract double  anglee();
 }
 
 abstract class simplefunction extends function {
