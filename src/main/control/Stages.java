@@ -8,5 +8,4 @@ public class Stages {
         void endFunction();
         StageStartVars AUTO_START_VARS = new StageStartVars();
     }
-
 }
